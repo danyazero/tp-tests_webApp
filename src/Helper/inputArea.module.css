@@ -1,0 +1,41 @@
+.formControl{
+    margin-bottom: 16px;
+}
+
+.formControl.error input{
+    animation: shake 0.3s ease-in-out;
+    border: solid #be4b49 2px;
+}
+
+.label{
+    font-size: 20px;
+}
+
+.errorMargin{
+    margin-bottom: 15px;
+}
+
+.errorMargin.error {
+    animation: shake 0.3s ease-in-out;
+    border: solid #be4b49 2px;
+}
+
+.errorName{
+    margin-top: 5px;
+    background: #be4b49;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@keyframes shake {
+    0%, 100%{
+        margin-left: 0px;
+    }
+    20%, 80%{
+        margin-left: -8px;
+    }
+    40%, 60%{
+        margin-left: 8px;
+    }
+}

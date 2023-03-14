@@ -1,0 +1,47 @@
+.textArea{
+    margin-bottom: 10%;
+}
+
+.loginForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+.startButton{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    background: #1777f2;
+    border-radius: 13px;
+    height: 40px;
+    width: 120px;
+    border: 0;
+    color: white;
+}
+
+.inputArea{
+    display: flex;
+    gap: 8px;
+}
+
+.nameField{
+    display: flex;
+    background: #f6f7fb;
+    padding: 12px;
+    width: 220px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 8px;
+}
+
+.formArea{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

@@ -1,0 +1,36 @@
+
+
+.card{
+    width: 180px;
+    height: 270px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    background: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.idArea{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    background: #93a9fe;
+    color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.nameArea{
+    font-size: 16px;
+    padding: 10px;
+    color: black;
+}
+
+.author{
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+    padding: 10px;
+}
