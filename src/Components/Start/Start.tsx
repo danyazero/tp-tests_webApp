@@ -1,13 +1,9 @@
 import React, {FC, useEffect} from 'react';
 import st from "./Start.module.css"
 import Card from "../../HelpComponents/Card/Card";
+import {dPropsStart, propsStart} from "./StartContainer";
 
-type propsStart = {
-    tests: Array<any>,
-    getTestsList: Function,
-    setTestsSettings(id: number): void
-}
-const Start: FC<propsStart> = (props) => {
+const Start: FC<propsStart & dPropsStart> = (props) => {
 
     useEffect(() => {
         props.getTestsList();

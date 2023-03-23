@@ -11,7 +11,7 @@ export type propsHome = {
     isAuth: boolean,
     edited: boolean,
     isStarted: boolean,
-    isInitialized: Array<any>
+    isInitialized: Array<any>,
 }
 function mapStateToProps(state: RootState): propsHome{
     return{
@@ -24,7 +24,11 @@ function mapStateToProps(state: RootState): propsHome{
     }
 }
 
-function mapDispatchToProps(dispatch: Dispatch<any>){
+export interface dPropsHome{
+    setUser(name : string, email: string): void
+}
+
+function mapDispatchToProps(dispatch: Dispatch<any>):dPropsHome{
     return{
         setUser(name: string, email: string){
             dispatch(startTestReducer({name, email}))

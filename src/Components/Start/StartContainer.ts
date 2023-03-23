@@ -1,16 +1,24 @@
 import {connect} from "react-redux";
 import Start from "./Start";
-import {getTestsList, initTestAPI, setTestsSettingsReducer} from "../../Redux/testReducer";
+import {getTestsList, initTestAPI} from "../../Redux/testReducer";
 import {RootState} from "../../Redux/store";
 import {Dispatch} from "@reduxjs/toolkit";
 
-function mapStateToProps(state: RootState){
+export interface propsStart {
+    tests: Array<any>
+}
+function mapStateToProps(state: RootState): propsStart{
     return{
         tests: state.test.testsList
     }
 }
 
-function mapDispatchToProps(dispatch : Dispatch<any>){
+export interface dPropsStart{
+    getTestsList(): void,
+    setTestsSettings(id: number): void
+}
+
+function mapDispatchToProps(dispatch : Dispatch<any>): dPropsStart{
     return{
         getTestsList(){
             dispatch(getTestsList())

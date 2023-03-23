@@ -25,7 +25,7 @@ const Test: FC<propsTest & dPropsTest> = (props) => {
         props.addAnswer(id)
     }
 
-    const buttons = props.buttons.map((el, id) => <button key={id} id={id+1 + ""} onClick={buttonClickHandler}
+    const buttons = props.buttons.map((el, id) => <button key={id} id={id+1+ ""} onClick={buttonClickHandler}
                                                           className={st.answerButton}>{el}</button>)
 
 

@@ -11,11 +11,11 @@ interface CardProps{
 
 const Card = (props: CardProps) => {
 
-    function onNavlinkClickHandler(){
+    function onNavLinkClickHandler(){
         props.setTest(props.id);
     }
     return(
-        <NavLink onClick={onNavlinkClickHandler} to={'/auth'} className={st.card}>
+        <NavLink onClick={onNavLinkClickHandler} to={'/auth'} className={st.card}>
             <div className={st.idArea}>#{props.id}</div>
             <div className={st.textArea}>
                 <div className = {st.nameArea}>{props.name}</div>

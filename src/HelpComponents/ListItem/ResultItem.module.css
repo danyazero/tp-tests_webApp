@@ -1,4 +1,4 @@
-.grigItem{
+.gridItem{
     display: grid;
     grid-template-areas: "itemName itemEmail itemPoints";
     grid-template-columns: 45% 45% 5%;
