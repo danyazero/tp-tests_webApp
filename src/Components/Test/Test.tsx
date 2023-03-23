@@ -21,7 +21,7 @@ const Test: FC<propsTest & dPropsTest> = (props) => {
     }, [props.curPos])
 
     function buttonClickHandler(event: any) {
-        let id = event.target.id
+        let id: number = event.target.id
         props.addAnswer(id)
     }
 

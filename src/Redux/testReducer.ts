@@ -71,7 +71,7 @@ const testReducer = createSlice({
 
 export const getQuestionAPI = createAsyncThunk(
     'testReducer/getQuestion',
-    async (data: any, thunkAPI: any) => {
+    async (data: number, thunkAPI: any) => {
         let res = await getQuestionReq(thunkAPI.getState().test.testType.type, data)
         thunkAPI.dispatch(setCurQuestionReducer(res.data.quest))
     }

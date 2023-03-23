@@ -27,9 +27,9 @@ function mapStateToProps(state: RootState): propsTest{
 }
 
 export type dPropsTest = {
-    addAnswer: Function,
-    analyzeResult: Function,
-    getQuestion: Function
+    addAnswer(id: number): void,
+    analyzeResult(): void,
+    getQuestion(cur: number): void
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>): dPropsTest{

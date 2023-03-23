@@ -1,10 +1,10 @@
 import React, {FC, useEffect} from 'react';
 import st from "./Result.module.css"
 import {useNavigate} from "react-router-dom";
-import ResultItem from "./ResultItem/ResultItem";
 import {propsResult} from "./ResultContainer";
+import ListItem from "../../HelpComponents/ListItem/ListItem";
 
-const Result: FC<propsResult> = (props) => {
+const Result: FC<propsResult> = ({name, email, result,...props}: propsResult) => {
 
     const navigate = useNavigate();
     useEffect(()=>{
@@ -13,9 +13,14 @@ const Result: FC<propsResult> = (props) => {
         }
     }, [])
 
-    const resultArray = props.result.map((el, id)=> <ResultItem key={id} id={id+1} name={el.name} count={el.count}/>)
+    const resultArray = result.map((el, id)=> <ListItem key={id} name={el.name} points={el.points}/>)
     return(
-        <div>
+        <div id={st.centralPanel} className={"centralPanel"}>
+            <div>
+                <h3 style={{margin: "0px"}}>{name}</h3>
+                <p style={{margin: "0px"}}>{email}</p>
+            </div>
+            <hr style={{opacity: "40%", marginTop: "20px"}}/>
             {resultArray}
         </div>
     )
