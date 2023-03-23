@@ -2,7 +2,14 @@ import React from 'react';
 import st from "./Card.module.css"
 import {NavLink} from "react-router-dom";
 
-const Card = (props: {id : string, name: string, author: string, setTest: Function}) => {
+interface CardProps{
+    name: string,
+    author: string,
+    id: number,
+    setTest(id: number): void
+}
+
+const Card = (props: CardProps) => {
 
     function onNavlinkClickHandler(){
         props.setTest(props.id);
@@ -10,8 +17,10 @@ const Card = (props: {id : string, name: string, author: string, setTest: Functi
     return(
         <NavLink onClick={onNavlinkClickHandler} to={'/auth'} className={st.card}>
             <div className={st.idArea}>#{props.id}</div>
-            <div className = {st.nameArea}>{props.name}</div>
-            <div className = {st.author}>{props.author}</div>
+            <div className={st.textArea}>
+                <div className = {st.nameArea}>{props.name}</div>
+                <div className = {st.author}>{props.author}</div>
+            </div>
         </NavLink>
     )
 };

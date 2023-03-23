@@ -15,8 +15,8 @@ const Home: FC<propsHome & { setUser: Function }> = (props) => {
         }
     }, [props.isStarted, navigate])
 
-    useEffect(()=>{
-        if (props.isInitialized.length == 0){
+    useEffect(() => {
+        if (props.isInitialized.length == 0) {
             navigate("/start");
         }
     }, [])
@@ -26,9 +26,6 @@ const Home: FC<propsHome & { setUser: Function }> = (props) => {
 
     return (
         <div className={"centralPanel"}>
-            <h2>ИНСТРУКЦИЯ:</h2>
-            <p className={st.textArea}>{props.instruction}
-            </p>
             <div className={st.loginForm}>
                 <form className={st.formArea} onSubmit={(e) => {
                     e.preventDefault();
@@ -37,13 +34,17 @@ const Home: FC<propsHome & { setUser: Function }> = (props) => {
 
                 }}>
                     <div className={st.inputArea}>
-                        <input type={"text"} placeholder={"Имя"} className={st.nameField} value={name} onChange={(e) => {setName(e.target.value)
-                            console.log(name)}} required/>
-                        <input type="email" placeholder={"Почта"} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" className={st.nameField} value={email} onChange={(e)=>{setEmail(e.target.value)}} required/>
+                        <input type={"text"} placeholder={"Имя"} className={st.nameField} value={name}
+                               onChange={(e) => {
+                                   setName(e.target.value)
+                                   console.log(name)
+                               }} required/>
+                        <input type="email" placeholder={"Почта"} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                               className={st.nameField} value={email} onChange={(e) => {
+                            setEmail(e.target.value)
+                        }} required/>
                     </div>
-                    <div className={st.buttonContainer}>
-                        <button className={st.startButton} type="submit">Начать</button>
-                    </div>
+                    <button className={st.startButton} type="submit">Начать</button>
                 </form>
             </div>
         </div>

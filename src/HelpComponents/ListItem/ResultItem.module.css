@@ -1,0 +1,21 @@
+.grigItem{
+    display: grid;
+    grid-template-areas: "itemNumber itemName itemEmail itemPoints";
+    grid-template-columns: 25px 230px 350px 25px;
+    gap: 8px;
+}
+.itemNumber{
+    grid-area: itemNumber;
+}
+
+.itemName{
+    grid-area: itemName;
+}
+
+.itemEmail{
+    grid-area: itemEmail;
+}
+
+.itemPoints{
+    grid-area: itemPoints;
+}

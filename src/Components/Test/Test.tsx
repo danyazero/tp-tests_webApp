@@ -30,7 +30,7 @@ const Test: FC<propsTest & dPropsTest> = (props) => {
 
 
     return (
-        <div className={"centralPanel"}>
+        <div id={st.centralPanel} className={"centralPanel"}>
             <h2>Вопрос: {props.curPos + 1}</h2>
             <p className={st.textArea}>
                 {props.question}

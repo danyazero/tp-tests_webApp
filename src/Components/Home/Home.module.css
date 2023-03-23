@@ -16,13 +16,15 @@
     background: #1777f2;
     border-radius: 13px;
     height: 40px;
-    width: 120px;
+    margin-top: 10px;
+    width: 100%;
     border: 0;
     color: white;
 }
 
 .inputArea{
     display: flex;
+    flex-direction: column;
     gap: 8px;
 }
 
@@ -35,13 +37,8 @@
     border: 1px solid transparent;
 }
 
-.buttonContainer{
-    display: flex;
-    gap: 8px;
-}
 
 .formArea{
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    flex-direction: column;
 }

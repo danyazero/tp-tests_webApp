@@ -1,11 +1,11 @@
 import React, {FC, useEffect} from 'react';
-import Card from "./Card/Card";
 import st from "./Start.module.css"
+import Card from "../../HelpComponents/Card/Card";
 
 type propsStart = {
     tests: Array<any>,
     getTestsList: Function,
-    setTestsSettings: Function
+    setTestsSettings(id: number): void
 }
 const Start: FC<propsStart> = (props) => {
 
@@ -15,8 +15,10 @@ const Start: FC<propsStart> = (props) => {
 
     const cards = props.tests.map((el, id) => <Card key={id} setTest={props.setTestsSettings} id={el.id} author={el.author} name={el.name}/>)
     return(
-        <div className={st.centralPanel}>
-            {cards}
+        <div id={st.centralPanel} className={"centralPanel"}>
+            <div className={st.startPanel}>
+                {cards}
+            </div>
         </div>
     )
 };

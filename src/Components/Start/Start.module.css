@@ -1,12 +1,19 @@
-.centralPanel{
-    max-width: 60%;
-    width: 60%;
-    gap: 15px;
-    min-width: 50%;
-    padding: 30px;
-    background: white;
-    border-radius: 30px;
+.startPanel{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    gap: 15px;
+}
+#centralPanel{
+    background: transparent;
+}
+
+@media screen and (max-width: 600px){
+    .startPanel{
+        display: flex;
+        flex-direction: column;
+    }
+    #centralPanel{
+        width: 100%;
+    }
 }

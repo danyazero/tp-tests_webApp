@@ -9,7 +9,7 @@ import {ResultContainer} from "./Components/Result/ResultContainer";
 
 function App(): JSX.Element {
     return (
-        <div className={"App"}>
+        <>
             {/*<HomeContainer/>*/}
             <BrowserRouter>
                 <Routes>
@@ -21,7 +21,10 @@ function App(): JSX.Element {
                     {/*< Route path = "/admin/:userId?" element={<AdminContainer/>}/>*/}
                 </Routes>
             </BrowserRouter>
-        </div>
+
+            <div className={"ftApPE"}></div>
+            <div className={"kXrIic"}></div>
+        </>
     );
 }
 

@@ -1,8 +1,11 @@
 
 
 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 180px;
-    height: 270px;
+    height: 35vh;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     background: white;
     border-radius: 25px;
@@ -10,7 +13,7 @@
 }
 
 .idArea{
-    height: 50%;
+    padding: 4vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,9 +31,30 @@
     color: black;
 }
 
+.textArea{
+    display: flex;
+    flex-direction: column;
+}
+
 .author{
     text-decoration: none;
     font-size: 12px;
     color: black;
     padding: 10px;
+}
+
+@media screen and (max-width: 600px){
+    .card{
+        display: flex;
+        flex-direction: row;
+        height: fit-content;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .idArea{
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 0;
+    }
 }
