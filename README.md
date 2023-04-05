@@ -12,6 +12,9 @@
 <img width="2048" alt="Скрін веб застосунку" src="https://user-images.githubusercontent.com/97092438/226431866-e5d5bddd-6426-4395-9a00-02e47c2e3e15.png">
 
 <img width="2048" alt="Скрін веб застосунку" src="https://user-images.githubusercontent.com/97092438/226431887-9bf102b8-00b1-4795-8adf-3690c0eb12c4.png">
+
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/97092438/230057565-0e113f71-b5b5-46de-aedb-c391725a7674.png">
+
   </details>
 
 
