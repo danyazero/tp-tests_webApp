@@ -20,11 +20,3 @@ export function getTestsListReq(){
 export function getDataAboutTestReq(id: number){
     return instance.get(`/test?type=${id}`)
 }
-
-export function loginWithoutCredsReq(email: string, password: string, remember: boolean){
-    return instance.post('/login', {email, password, remember}, {withCredentials: false})
-}
-
-export function loginWithCredsReq(){
-    return instance.get('/login')
-}

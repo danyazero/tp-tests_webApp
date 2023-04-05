@@ -1,10 +1,9 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {useNavigate} from "react-router-dom";
+import {loginData} from "../Models/Models";
 
 type SliceState = {
     name: string,
     email: string,
-    edited: boolean,
     isAuth: boolean,
     isStarted: boolean
 }
@@ -12,7 +11,6 @@ type SliceState = {
 const initialState: SliceState = {
     name: "",
     email: "",
-    edited: false,
     isAuth: false,
     isStarted: false,
 }
@@ -21,7 +19,7 @@ const loginReducer = createSlice({
     name: "loginReducer",
     initialState,
     reducers: {
-        startTestReducer(state: SliceState, action: PayloadAction<any>){
+        startTestReducer(state: SliceState, action: PayloadAction<loginData>){
             state.name = action.payload.name;
             state.email = action.payload.email;
             state.isStarted = true;

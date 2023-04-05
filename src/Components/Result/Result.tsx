@@ -17,9 +17,8 @@ const Result: FC<propsResult> = ({name, email, result,...props}: propsResult) =>
         const enter = "%0D%0A";
         let resultString = ""
         const testType = props.test.filter(m => m.id !== props.type)[0]
-        debugger
         for (let i = 0; i < result.length; i++){
-            resultString += (result[i].name + "%20" + result[i].points + enter);
+            resultString += ("%20-%20" + result[i].name + "%20" + result[i].points + enter);
         }
 
         return "mailto:formulamgo2@gmail.com?subject=Psychological%20test&body=" + "Name: " + name + enter + "Email: " + email + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString

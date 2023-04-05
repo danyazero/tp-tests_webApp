@@ -2,16 +2,15 @@ import {connect} from "react-redux";
 import Result from "./Result";
 import {Dispatch} from "@reduxjs/toolkit";
 import {RootState} from "../../Redux/store";
-
-export type resultObject = {id : number, name: string, points: number}
+import {resultArray, testsList} from "../../Models/Models";
 
 export type propsResult = {
-    result: Array<resultObject>,
+    result: Array<resultArray>,
     isStarted: boolean,
     type: number,
     name: string,
     email: string
-    test: Array<any>
+    test: Array<testsList>
 }
 
 function mapStateToProps(state: RootState): propsResult{

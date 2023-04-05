@@ -1,24 +1,20 @@
 import {connect} from "react-redux";
 import Home from "./Home";
 import { startTestReducer} from "../../Redux/loginReducer";
-import {reduxForm} from "redux-form";
 import {RootState} from "../../Redux/store";
 import {Dispatch} from "@reduxjs/toolkit";
+import {testsList} from "../../Models/Models";
 
 export type propsHome = {
     name: string,
-    instruction: string,
     isAuth: boolean,
-    edited: boolean,
     isStarted: boolean,
-    isInitialized: Array<any>,
+    isInitialized: Array<testsList>,
 }
 function mapStateToProps(state: RootState): propsHome{
     return{
         name : state.login.name,
-        instruction: state.test.testType.instruction,
         isAuth: state.login.isAuth,
-        edited: state.login.edited,
         isStarted: state.login.isStarted,
         isInitialized: state.test.testsList,
     }

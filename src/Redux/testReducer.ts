@@ -1,68 +1,58 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getDataAboutTestReq, getQuestionReq, getTestsListReq, sendResultReq} from "./api";
-import {RootState} from "./store";
+import {resultArray, testSettings, testsList, testType} from "../Models/Models";
+import {AxiosResponse} from "axios";
 
 type SliceState = {
-    testType: { type: number; question: string; instruction: string; buttons: Array<string>},
+    testType: testType,
     amount: number,
     curQuest: number,
-    answers: Array<Object>
-    res: Array<any>,
-    testsList: Array<any>
+    answers: Array<number>
+    res: Array<resultArray>,
+    testsList: Array<testsList>
 }
 
 const initialState: SliceState = {
     testType: {
         type: 1,
         question: "",
-        instruction: "",
         buttons: []
     },
     amount: 88,
     curQuest: 0,
     answers: [],
     res: [],
-    testsList: [
-        // {name: "опросник Г. Шмишека", id: 1},
-        // {name: "Методика диагностики личности на мотивацию к избеганию неудач Т. Элерса", id: 2}
-    ]
+    testsList: []
 }
 const testReducer = createSlice({
     name: "testReducer",
     initialState,
     reducers: {
-        addAnswerReducer(state: SliceState, action: {payload: number}){
+        addAnswerReducer(state: SliceState, action: PayloadAction<number>){
             state.answers.push(action.payload);
             state.curQuest += 1;
 
             return state;
         },
-        testSettingsSetter(state: SliceState, action: PayloadAction<any>){
-            state.testType.type = action.payload.type;
-            state.testType.buttons = action.payload.buttons;
-
-            return state;
-        },
-        setCurQuestionReducer(state: SliceState, action: PayloadAction<any>){
+        setCurQuestionReducer(state: SliceState, action: PayloadAction<string>){
             state.testType.question = action.payload;
 
             return state;
         },
-        setResultsReducer(state: SliceState, action: PayloadAction<any>){
+        setResultsReducer(state: SliceState, action: PayloadAction<resultArray[]>){
             state.res = action.payload;
 
             return state;
         },
-        setTestsListReducer(state: SliceState, action: PayloadAction<any>){
+        setTestsListReducer(state: SliceState, action: PayloadAction<Array<testsList>>){
             state.testsList = action.payload;
 
             return state;
         },
-        setTestsSettingsReducer(state: SliceState, action: PayloadAction<any>){
+        setTestsSettingsReducer(state: SliceState, action: PayloadAction<testSettings>){
             state.testType.type = action.payload.id;
             state.testType.buttons = action.payload.buttons;
             state.amount = action.payload.amount;
-            state.testType.instruction = action.payload.instruction;
 
             return state;
         }
@@ -71,15 +61,15 @@ const testReducer = createSlice({
 
 export const getQuestionAPI = createAsyncThunk(
     'testReducer/getQuestion',
-    async (data: number, thunkAPI: any) => {
-        let res = await getQuestionReq(thunkAPI.getState().test.testType.type, data)
-        thunkAPI.dispatch(setCurQuestionReducer(res.data.quest))
+    async (_data: number, thunkAPI: any) => {
+        let {data}: AxiosResponse<{quest: string}> = await getQuestionReq(thunkAPI.getState().test.testType.type, _data)
+        thunkAPI.dispatch(setCurQuestionReducer(data.quest))
     }
 )
 
 export const sendResultAPI = createAsyncThunk(
     'testReducer/sendResult',
-    async (data: undefined, thunkAPI: any) => {
+    async (_data: undefined, thunkAPI: any) => {
         let res = await sendResultReq(thunkAPI.getState().test.answers, thunkAPI.getState().test.testType.type, thunkAPI.getState().login.name, thunkAPI.getState().login.email)
         let result = res.data.result
         thunkAPI.dispatch(setResultsReducer(result))
@@ -88,17 +78,17 @@ export const sendResultAPI = createAsyncThunk(
 
 export const getTestsList = createAsyncThunk(
     'testReducer/getTestsList',
-    async (data: undefined, thunkAPI: any) => {
-        let res = await getTestsListReq()
-        thunkAPI.dispatch(setTestsListReducer(res.data))
+    async (_data: undefined, thunkAPI: any) => {
+        let {data}: AxiosResponse<testsList[]> = await getTestsListReq()
+        thunkAPI.dispatch(setTestsListReducer(data))
     }
 )
 
 export const initTestAPI = createAsyncThunk(
     'testReducer/initTest',
-    async(data: any, thunkAPI: any) => {
-        let res = await getDataAboutTestReq(data)
-        thunkAPI.dispatch(setTestsSettingsReducer(res.data))
+    async(_data: number, thunkAPI: any) => {
+        let {data}: AxiosResponse<testSettings> = await getDataAboutTestReq(_data)
+        thunkAPI.dispatch(setTestsSettingsReducer(data))
     }
 )
 export default testReducer.reducer
