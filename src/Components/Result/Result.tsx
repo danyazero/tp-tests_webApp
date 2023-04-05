@@ -13,6 +13,18 @@ const Result: FC<propsResult> = ({name, email, result,...props}: propsResult) =>
         }
     }, [])
 
+    function renderResultLink(){
+        const enter = "%0D%0A";
+        let resultString = ""
+        const testType = props.test.filter(m => m.id !== props.type)[0]
+        debugger
+        for (let i = 0; i < result.length; i++){
+            resultString += (result[i].name + "%20" + result[i].points + enter);
+        }
+
+        return "mailto:formulamgo2@gmail.com?subject=Psychological%20test&body=" + "Name: " + name + enter + "Email: " + email + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString
+    }
+
     const resultArray = result.map((el, id)=> <ListItem key={id} name={el.name} points={el.points}/>)
     return(
         <div id={st.centralPanel} className={"centralPanel"}>
@@ -22,6 +34,7 @@ const Result: FC<propsResult> = ({name, email, result,...props}: propsResult) =>
             </div>
             <hr style={{opacity: "40%", marginTop: "20px"}}/>
             {resultArray}
+            {props.test.length > 0 ? <a className="button" href = {renderResultLink()}>Share</a> : ""}
         </div>
     )
 };

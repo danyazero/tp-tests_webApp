@@ -11,6 +11,7 @@ export type propsResult = {
     type: number,
     name: string,
     email: string
+    test: Array<any>
 }
 
 function mapStateToProps(state: RootState): propsResult{
@@ -18,6 +19,7 @@ function mapStateToProps(state: RootState): propsResult{
         result: state.test.res,
         isStarted: state.login.isStarted,
         type: state.test.testType.type,
+        test: state.test.testsList,
         name: state.login.name,
         email: state.login.email,
     }

@@ -34,12 +34,12 @@ const Home: FC<propsHome & dPropsHome> = (props) => {
 
                 }}>
                     <div className={st.inputArea}>
-                        <input type={"text"} placeholder={"Имя"} className={st.nameField} value={name}
+                        <input type={"text"} name={"name"} placeholder={"Имя"} className={st.nameField} value={name}
                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                    setName(e.target.value)
                                    console.log(name)
                                }} required/>
-                        <input type="email" placeholder={"Почта"} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        <input type="email" name={"email"} placeholder={"Почта"} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                                className={st.nameField} value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             setEmail(e.target.value)
                         }} required/>

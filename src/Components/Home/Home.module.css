@@ -7,21 +7,6 @@
     justify-content: space-between;
 }
 
-.startButton{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    background: #1777f2;
-    border-radius: 13px;
-    height: 40px;
-    margin-top: 10px;
-    width: 100%;
-    border: 0;
-    color: white;
-}
-
 .inputArea{
     display: flex;
     flex-direction: column;
