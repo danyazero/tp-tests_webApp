@@ -3,7 +3,8 @@
 ## Technology stack
 <a href="https://uk.reactjs.org"><img src="https://img.shields.io/badge/React-005571?style=for-the-badge&logo=React&logoColor=white"/></a><a href="https://redux.js.org"><img src="https://img.shields.io/badge/Redux-764abc?style=for-the-badge&logo=Redux&logoColor=white" /></a><img src="https://img.shields.io/badge/TypeScript-0171bc?style=for-the-badge&logo=TypeScript&logoColor=white" />
 
-<img width="300" src="https://user-images.githubusercontent.com/97092438/230380342-01c1d58b-b515-41bc-930e-5243c7b48726.gif">
+<img width="300" src="https://user-images.githubusercontent.com/97092438/230384207-afb0b412-9a4d-413c-af20-0bb70fdb1b0c.gif">
+
 
 ## Atachments
 
