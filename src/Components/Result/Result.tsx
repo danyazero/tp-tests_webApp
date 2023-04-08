@@ -1,11 +1,11 @@
 import React, {FC, useEffect} from 'react';
 import st from "./Result.module.css"
 import {useNavigate} from "react-router-dom";
-import {propsResult} from "./ResultContainer";
+import {dPropsResult, propsResult} from "./ResultContainer";
 import ListItem from "../../HelpComponents/ListItem/ListItem";
 import Loading from "../../HelpComponents/Loading/Loading";
 
-const Result: FC<propsResult> = ({name, email, result,...props}: propsResult) => {
+const Result: FC<propsResult & dPropsResult> = ({name, result,...props}) => {
 
     const navigate = useNavigate();
     useEffect(()=>{
@@ -22,20 +22,21 @@ const Result: FC<propsResult> = ({name, email, result,...props}: propsResult) =>
             resultString += ("%20-%20" + result[i].name + "%20" + result[i].points + enter);
         }
 
-        return "mailto:formulamgo2@gmail.com?subject=Psychological%20test&body=" + "Name: " + name + enter + "Email: " + email + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString
+        return "mailto:formulamgo2@gmail.com?subject=Psychological%20test&body=" + "Name: " + name + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString
     }
 
     const resultArray = result.map((el, id)=> <ListItem key={"results_"+id} name={el.name} points={el.points}/>)
     return(
         <div id={st.centralPanel} className={"centralPanel"}>
-            <div>
+            <div className={st.header}>
                 <h3 style={{margin: "0px"}}>{name}</h3>
-                <p style={{margin: "0px"}}>{email}</p>
+                <a className={st.backButton} onClick={()=>{
+                    props.setTestStatus(false)
+                    navigate("/")
+                }}>Back</a>
             </div>
             <hr style={{opacity: "40%", marginTop: "20px"}}/>
-            {
-                props.isLoading ? <Loading/> : resultArray
-            }
+            {props.isLoading ? <Loading/> : resultArray}
             {props.test.length > 0 ? <a className="button" href = {renderResultLink()}>Share</a> : ""}
         </div>
     )

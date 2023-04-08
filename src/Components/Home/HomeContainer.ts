@@ -21,13 +21,13 @@ function mapStateToProps(state: RootState): propsHome{
 }
 
 export interface dPropsHome{
-    setUser(name : string, email: string): void
+    setUser(name : string): void
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>):dPropsHome{
     return{
-        setUser(name: string, email: string){
-            dispatch(startTestReducer({name, email}))
+        setUser(name: string){
+            dispatch(startTestReducer(name))
         }
     }
 }

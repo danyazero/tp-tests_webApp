@@ -3,13 +3,14 @@ import Result from "./Result";
 import {Dispatch} from "@reduxjs/toolkit";
 import {RootState} from "../../Redux/store";
 import {resultArray, testsList} from "../../Models/Models";
+import {finishTestReducer} from "../../Redux/loginReducer";
+import {clearTestResults} from "../../Redux/testReducer";
 
 export type propsResult = {
     result: Array<resultArray>,
     isStarted: boolean,
     type: number,
     name: string,
-    email: string
     isLoading: boolean,
     test: Array<testsList>
 }
@@ -22,13 +23,19 @@ function mapStateToProps(state: RootState): propsResult{
         type: state.test.testType.type,
         test: state.test.testsList,
         name: state.login.name,
-        email: state.login.email,
     }
+}
+
+export type dPropsResult = {
+    setTestStatus(status: boolean): void
 }
 
 function mapDispatchToProps(dispatch: Dispatch<any>){
     return{
-
+        setTestStatus(status: boolean){
+            dispatch(finishTestReducer())
+            dispatch(clearTestResults())
+        }
     }
 }
 

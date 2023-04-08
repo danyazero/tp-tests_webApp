@@ -63,6 +63,11 @@ const testReducer = createSlice({
             state.isLoading = action.payload
 
             return state;
+        },
+        clearTestResults(state : SliceState){
+            state.curQuest = 0
+            state.res = []
+            return state;
         }
     }
 })
@@ -107,4 +112,4 @@ export const initTestAPI = createAsyncThunk(
     }
 )
 export default testReducer.reducer
-export const {setTestsListReducer, setLoadingStatusReducer, addAnswerReducer, setResultsReducer, setCurQuestionReducer, setTestsSettingsReducer} = testReducer.actions
+export const {setTestsListReducer, clearTestResults, setLoadingStatusReducer, addAnswerReducer, setResultsReducer, setCurQuestionReducer, setTestsSettingsReducer} = testReducer.actions
