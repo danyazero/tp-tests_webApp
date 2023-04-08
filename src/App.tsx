@@ -6,6 +6,8 @@ import {StartContainer} from "./Components/Start/StartContainer";
 import {HomeContainer} from "./Components/Home/HomeContainer";
 import {TestContainer} from "./Components/Test/TestContainer";
 import {ResultContainer} from "./Components/Result/ResultContainer";
+import Loading from "./HelpComponents/Loading/Loading";
+import Error from "./Components/Error/Error";
 
 function App(): JSX.Element {
     return (
@@ -13,6 +15,7 @@ function App(): JSX.Element {
             {/*<HomeContainer/>*/}
             <BrowserRouter>
                 <Routes>
+                    <Route path="/error" element={<Error/>}/>
                     <Route path="/" element={<Navigate to="/start"/>}/>
                     <Route path="/start" element={<StartContainer/>}/>
                     < Route path = "/test" element={<TestContainer/>}/>

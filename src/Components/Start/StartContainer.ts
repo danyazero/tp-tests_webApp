@@ -5,10 +5,12 @@ import {RootState} from "../../Redux/store";
 import {Dispatch} from "@reduxjs/toolkit";
 
 export interface propsStart {
-    tests: Array<any>
+    tests: Array<any>,
+    isLoading: boolean
 }
 function mapStateToProps(state: RootState): propsStart{
     return{
+        isLoading: state.test.isLoading,
         tests: state.test.testsList
     }
 }

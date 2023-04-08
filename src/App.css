@@ -45,6 +45,7 @@ html, body {
 
 .centralPanel{
   padding: 30px;
+  min-height: 18%;
   background: white;
   border-radius: 30px;
   z-index: 99;

@@ -34,7 +34,7 @@ const Home: FC<propsHome & dPropsHome> = (props) => {
 
                 }}>
                     <div className={st.inputArea}>
-                        <input type={"text"} name={"name"} placeholder={"Имя"} className={st.nameField} value={name}
+                        <input type={"text"} name={"first_name"} placeholder={"Имя"} className={st.nameField} value={name}
                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                    setName(e.target.value)
                                    console.log(name)
