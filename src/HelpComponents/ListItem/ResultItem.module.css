@@ -1,16 +1,12 @@
 .gridItem{
     display: grid;
-    grid-template-areas: "itemName itemEmail itemPoints";
-    grid-template-columns: 45% 45% 5%;
+    grid-template-areas: "itemName itemPoints";
+    grid-template-columns: 90% 10%;
     gap: 8px;
 }
 
 .itemName{
     grid-area: itemName;
-}
-
-.itemEmail{
-    grid-area: itemEmail;
 }
 
 .itemPoints{

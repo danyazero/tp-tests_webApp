@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import loginReducer from "./loginReducer";
+import loginReducer, {loginSliceState} from "./loginReducer";
 import {configureStore} from "@reduxjs/toolkit";
-import testReducer from "./testReducer";
+import testReducer, {testSliceState} from "./testReducer";
 
 
 const reducers = combineReducers({
@@ -13,5 +13,5 @@ let store = configureStore({
     reducer: reducers
 })
 
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = {login: loginSliceState, test: testSliceState}
 export default store

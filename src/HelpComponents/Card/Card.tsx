@@ -1,18 +1,14 @@
 import React from 'react';
 import st from "./Card.module.css"
 import {NavLink} from "react-router-dom";
+import {CardProps} from "../../Models/Models";
 
-interface CardProps{
-    name: string,
-    author: string,
-    id: number,
-    setTest(id: number): void
-}
+
 
 const Card = (props: CardProps) => {
 
     function onNavLinkClickHandler(){
-        props.setTest(props.id);
+        props.setTest(props.id, props.amount);
     }
     return(
         <NavLink onClick={onNavLinkClickHandler} to={'/auth'} className={st.card}>

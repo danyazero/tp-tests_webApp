@@ -1,13 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {loginData} from "../Models/Models";
 
-type SliceState = {
+export type loginSliceState = {
     name: string,
     isAuth: boolean,
     isStarted: boolean
 }
 
-const initialState: SliceState = {
+const initialState: loginSliceState = {
     name: "",
     isAuth: false,
     isStarted: false,
@@ -17,7 +16,7 @@ const loginReducer = createSlice({
     name: "loginReducer",
     initialState,
     reducers: {
-        startTestReducer(state: SliceState, action: PayloadAction<string>){
+        startTestReducer(state: loginSliceState, action: PayloadAction<string>) {
             state.name = action.payload;
             state.isStarted = true;
             state.isAuth = true;
@@ -25,7 +24,7 @@ const loginReducer = createSlice({
 
             return state;
         },
-        finishTestReducer(state : SliceState){
+        finishTestReducer(state: loginSliceState) {
             state.isStarted = false;
             return state;
         }

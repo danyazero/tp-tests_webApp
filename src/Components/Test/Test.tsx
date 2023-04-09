@@ -7,8 +7,11 @@ import Loading from "../../HelpComponents/Loading/Loading";
 const Test: FC<propsTest & dPropsTest> = (props) => {
     const navigate = useNavigate();
 
+    useEffect(()=>{
+        if (props.error) navigate("/error")
+    },[props.error])
+
     useEffect(() => {
-        if (props.buttons === undefined) navigate("/error")
         if (!props.isStarted) {
             navigate("/");
         }

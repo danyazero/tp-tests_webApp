@@ -11,7 +11,6 @@ const ListItem = (props: ListItemProps) => {
     return(
         <div className={st.gridItem}>
             {props.name && <p className={st.itemName}>{props.name}</p>}
-            {props.email && <p className={st.itemEmail}>{props.email}</p>}
             {props.points && <p className={st.itemPoints}>{props.points}</p>}
         </div>
     )

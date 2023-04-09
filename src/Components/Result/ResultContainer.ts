@@ -12,7 +12,8 @@ export type propsResult = {
     type: number,
     name: string,
     isLoading: boolean,
-    test: Array<testsList>
+    test: Array<testsList>,
+    error: boolean
 }
 
 function mapStateToProps(state: RootState): propsResult{
@@ -23,6 +24,7 @@ function mapStateToProps(state: RootState): propsResult{
         type: state.test.testType.type,
         test: state.test.testsList,
         name: state.login.name,
+        error: state.test.error
     }
 }
 

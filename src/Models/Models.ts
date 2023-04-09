@@ -1,7 +1,8 @@
 export type testsList = {
     id: number,
     author: string,
-    name: string
+    name: string,
+    amount: number
 }
 
 export type testSettings = {
@@ -23,4 +24,12 @@ export type testType = { type: number,
 export type loginData = {
     name: string,
     email: string
+}
+
+export interface CardProps{
+    name: string,
+    author: string,
+    id: number,
+    amount : number
+    setTest(id: number, amount: number): void
 }

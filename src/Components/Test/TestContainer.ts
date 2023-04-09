@@ -12,6 +12,7 @@ export type  propsTest = {
     isStarted: boolean,
     question: string,
     curPos: number,
+    error: boolean,
     amount: number,
     isLoading: boolean,
     buttons: Array<string> | undefined
@@ -19,6 +20,7 @@ export type  propsTest = {
 function mapStateToProps(state: RootState): propsTest{
     return{
         isLoading: state.test.isLoading,
+        error: state.test.error,
         isAuth: state.login.isAuth,
         isStarted: state.login.isStarted,
         question: state.test.testType.question,

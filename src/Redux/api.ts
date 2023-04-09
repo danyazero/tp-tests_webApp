@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 export function getQuestionReq(type: number, curQuest: number){
-    return instance.get(`test?type=${type}&id=${curQuest}`)
+    return instance.get(`question?type=${type}&id=${curQuest}`)
 }
 
 export function sendResultReq(answers: Array<number>, type: number, name: string, email: string){
@@ -15,8 +15,4 @@ export function sendResultReq(answers: Array<number>, type: number, name: string
 
 export function getTestsListReq(){
     return instance.get('/test')
-}
-
-export function getDataAboutTestReq(id: number){
-    return instance.get(`/test?type=${id}`)
 }

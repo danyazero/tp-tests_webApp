@@ -10,6 +10,7 @@ export type propsHome = {
     isAuth: boolean,
     isStarted: boolean,
     isInitialized: Array<testsList>,
+    error: boolean
 }
 function mapStateToProps(state: RootState): propsHome{
     return{
@@ -17,6 +18,7 @@ function mapStateToProps(state: RootState): propsHome{
         isAuth: state.login.isAuth,
         isStarted: state.login.isStarted,
         isInitialized: state.test.testsList,
+        error: state.test.error
     }
 }
 
