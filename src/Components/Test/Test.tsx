@@ -32,21 +32,25 @@ const Test: FC<propsTest & dPropsTest> = (props) => {
 
     function renderButtons(){
         if (props.buttons){
-            return props.buttons.map((el, id) => <button key={id} id={id + 1 + ""} onClick={buttonClickHandler}
+            return props.buttons.map((el, id) => <button key={id} disabled={props.isLoading} id={id + 1 + ""} onClick={buttonClickHandler}
                                                          className={st.answerButton}>{el}</button>)
         }
     }
 
 
     return (
-        <div id={st.centralPanel} className={"centralPanel"}>
-            <h2>Вопрос: {props.isLoading ? props.curPos : props.curPos + 1}</h2>
-            {props.isLoading ? <Loading/> : <></>}
-            <p className={st.textArea}>
-                {props.question}
-            </p>
-            <div className={st.answerForm}>
-                {renderButtons()}
+        <div className={st.container}>
+            <div className={st.questionPanel}>
+                <h2>Вопрос: {props.isLoading ? props.curPos : props.curPos + 1}</h2>
+                {props.isLoading ? <Loading/> : <></>}
+                <p className={st.textArea}>
+                    {props.question}
+                </p>
+            </div>
+            <div className={st.answersPanel}>
+                <div className={st.answerForm}>
+                    {renderButtons()}
+                </div>
             </div>
         </div>
     )

@@ -4,8 +4,6 @@
 }
 
 .container{
-    padding: 30px;
-    background: white;
     border-radius: 30px;
 }
 
@@ -20,12 +18,32 @@
 .textArea{
     width: fit-content;
     height: 3em;
-    font-size: 22px;
+    font-size: 24px;
 }
 
-#centralPanel{
-    width: 60%;
+.questionPanel{
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    z-index: 99;
 }
+
+.container{
+    height: 90%;
+    gap: 15px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.answersPanel{
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    z-index: 99;
+}
+
 
 .answerButton{
     display: flex;
@@ -36,16 +54,21 @@
     font-size: 24px;
     background: #3f4e5d;
     border-radius: 13px;
-    height: 60px;
+    height: 70px;
     flex: auto;
     width: 35%;
     border: 0;
     color: white;
+
 }
 
 @media screen and (max-width: 600px){
     .textArea{
+        font-size: 22px;
         height: 6em;
+    }
+    .container{
+        width: 90%;
     }
     .answerButton{
         width: 49%;

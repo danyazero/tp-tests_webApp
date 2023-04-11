@@ -1,7 +1,7 @@
 .gridItem{
     display: grid;
     grid-template-areas: "itemName itemPoints";
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 89% 10%;
     gap: 8px;
 }
 
@@ -10,5 +10,7 @@
 }
 
 .itemPoints{
+    display: flex;
     grid-area: itemPoints;
+    justify-content: flex-end;
 }

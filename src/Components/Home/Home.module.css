@@ -10,7 +10,6 @@
 .inputArea{
     display: flex;
     flex-direction: column;
-    gap: 8px;
 }
 
 .nameField{
@@ -25,5 +24,6 @@
 
 .formArea{
     display: flex;
+    gap: 15px;
     flex-direction: column;
 }
