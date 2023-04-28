@@ -34,6 +34,7 @@ const Result: FC<propsResult & dPropsResult> = ({name, result, ...props}) => {
 
         return "mailto:formulamgo2@gmail.com?subject=Psychological%20test&body=" + "Name: " + name + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString
     }
+    const caption = props.caption.split(";").map((element, index) => <p key={"points-range-" + index} className={"without-text-decoration"}>{element + "\n"}</p>)
 
     const resultArray = result.map((el, id) => <ListItem key={"results_" + id} name={el.name} points={el.points}/>)
     return (
@@ -43,6 +44,7 @@ const Result: FC<propsResult & dPropsResult> = ({name, result, ...props}) => {
                 <a className={st.backButton} onClick={backButtonHandler}>Back</a>
             </div>
             <hr style={{opacity: "40%", marginTop: "20px"}}/>
+            <p>{props.caption.length > 0 ? caption : ""}</p>
             {props.isLoading ? <Loading/> : resultArray}
             {props.test.length > 0 ? <a className="button" href={renderResultLink()}>Share</a> : ""}
         </div>

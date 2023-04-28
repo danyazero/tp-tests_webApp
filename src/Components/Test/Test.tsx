@@ -18,7 +18,7 @@ const Test: FC<propsTest & dPropsTest> = (props) => {
     }, [])
 
     useEffect(() => {
-        if (props.curPos >= props.amount - 1) {
+        if (props.curPos >= props.amount) {
             props.analyzeResult()
             navigate("/result")
         }

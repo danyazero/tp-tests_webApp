@@ -23,6 +23,10 @@ html, body {
   min-height: 65vmin;
 }
 
+.without-text-decoration{
+  margin: 0;
+}
+
 .kXrIic {
   position: fixed;
   border-radius: 50%;

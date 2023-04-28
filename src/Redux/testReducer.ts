@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getQuestionReq, getTestsListReq, sendResultReq} from "./api";
-import {resultArray, testSettings, testsList, testType} from "../Models/Models";
+import {resultArray, resultsRes, testSettings, testsList, testType} from "../Models/Models";
 import {Axios, AxiosResponse} from "axios";
 
 export type testSliceState = {
@@ -8,6 +8,7 @@ export type testSliceState = {
     amount: number,
     curQuest: number,
     answers: Array<number>
+    captionForResults: string,
     res: Array<resultArray>,
     isLoading: boolean,
     error: boolean,
@@ -26,6 +27,7 @@ const initialState: testSliceState = {
     curQuest: 0,
     answers: [],
     res: [],
+    captionForResults: "",
     testsList: []
 }
 const testReducer = createSlice({
@@ -52,8 +54,10 @@ const testReducer = createSlice({
 
             return state;
         },
-        setResultsReducer(state: testSliceState, action: PayloadAction<resultArray[]>) {
-            state.res = action.payload;
+        setResultsReducer(state: testSliceState, action: PayloadAction<resultsRes>) {
+            state.res = action.payload.results;
+            state.captionForResults = action.payload.caption
+            state.answers = []
 
             return state;
         },
@@ -102,7 +106,7 @@ export const sendResultAPI = createAsyncThunk(
     async (_data: undefined, thunkAPI: any) => {
         try {
             thunkAPI.dispatch(setLoadingStatusReducer(true))
-            let {data}: AxiosResponse<resultArray[]> = await sendResultReq(thunkAPI.getState().test.answers, thunkAPI.getState().test.testType.type, thunkAPI.getState().login.name, thunkAPI.getState().login.email)
+            let {data}: AxiosResponse<resultsRes> = await sendResultReq(thunkAPI.getState().test.answers, thunkAPI.getState().test.testType.type, thunkAPI.getState().login.name, thunkAPI.getState().login.email)
             thunkAPI.dispatch(setLoadingStatusReducer(false))
             thunkAPI.dispatch(setResultsReducer(data))
         } catch (error) {

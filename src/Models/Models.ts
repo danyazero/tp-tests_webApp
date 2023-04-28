@@ -13,7 +13,12 @@ export type testSettings = {
 
 export type resultArray = {
     name: string,
-    points: number
+    points: number,
+}
+
+export type resultsRes = {
+    results: resultArray[],
+    caption: string
 }
 
 export type testType = { type: number,
