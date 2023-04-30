@@ -2,14 +2,10 @@ html, body {
   position: relative;
   background: #381272FF;
   overflow: unset;
-  flex: 1 1 0%;
   display: flex;
   width: 100%;
   min-height: 100%;
 }
-/*#root{*/
-/*  width: 100%;*/
-/*}*/
 
 
 .ftApPE {
@@ -48,9 +44,9 @@ html, body {
 }
 
 .centralPanel{
-  padding: 30px;
+  padding: 2vh;
   background: white;
-  border-radius: 30px;
+  border-radius: 18px;
   z-index: 99;
 }
 
@@ -69,9 +65,5 @@ button, .button{
 }
 
 
-@media screen and (max-width: 600px) {
-  .centralPanel{
-    margin-right: 8px;
-    margin-left: 8px;
-  }
-}
+/*@media screen and (max-width: 600px) {*/
+/*}*/

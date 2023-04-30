@@ -43,4 +43,5 @@ function mapDispatchToProps(dispatch: Dispatch<any>){
     }
 }
 
-export const ResultContainer = connect(mapStateToProps, mapDispatchToProps)(Result)
+const ResultContainer = connect(mapStateToProps, mapDispatchToProps)(Result)
+export default ResultContainer;

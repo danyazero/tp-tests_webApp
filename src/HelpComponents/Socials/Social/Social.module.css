@@ -1,0 +1,15 @@
+.social{
+    background: whitesmoke;
+    border-radius: 30px;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialImage{
+    width: 28px;
+    height: 28px;
+}

@@ -22,4 +22,5 @@ function mapDispatchToProps(dispatch: Dispatch<any>): dPropsError{
     }
 }
 
-export const ErrorContainer = connect(mapStateToProps, mapDispatchToProps)(Error)
+const ErrorContainer = connect(mapStateToProps, mapDispatchToProps)(Error)
+export default ErrorContainer;

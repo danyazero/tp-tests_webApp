@@ -65,7 +65,8 @@
 @media screen and (max-width: 600px){
     .textArea{
         font-size: 22px;
-        height: 6em;
+        min-height: 6em;
+        height: fit-content;
     }
     .container{
         width: 90%;
