@@ -33,7 +33,7 @@ const Result: FC<propsResult & dPropsResult> = ({name, result, ...props}) => {
             resultString += ("%20-%20" + result[i].name + "%20" + result[i].points + enter);
         }
 
-        return "mailto:formulamgo2@gmail.com?subject=Psychological%20test&body=" + "Name: " + name + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString
+        return "mailto:olena.marshak@nuos.edu.ua?subject=Psychological%20test&body=" + "Name: " + name + enter + "Test: " + testType.name + enter + "Author: " + testType.author + enter + "Results: " + enter + resultString
     }
 
     const caption = props.caption.replaceAll(";", ";~").split("~").map((element, index) => <p

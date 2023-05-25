@@ -31,5 +31,5 @@ const loginReducer = createSlice({
     }
 })
 
-export default loginReducer.reducer;
+export default loginReducer.reducer
 export const {startTestReducer, finishTestReducer} = loginReducer.actions
