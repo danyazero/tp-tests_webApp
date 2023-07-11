@@ -1,34 +1,24 @@
-export type testsList = {
+export interface IAboutTest {
     id: number,
     author: string,
     name: string,
     amount: number
 }
 
-export type testSettings = {
-    id: number,
-    buttons: string[],
-    amount: number
-}
-
-export type resultArray = {
+export interface IResultItem {
     name: string,
     points: number,
 }
 
-export type resultsRes = {
-    results: resultArray[],
+export interface IResult {
+    results: IResultItem[],
     caption: string
 }
 
-export type testType = { type: number,
+export interface ITest {
+    type: number,
     question: string,
     buttons: Array<string>
-}
-
-export type loginData = {
-    name: string,
-    email: string
 }
 
 export interface CardProps{

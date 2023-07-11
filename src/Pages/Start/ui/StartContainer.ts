@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
-import Start from "./Start";
-import {getTestsList, setTestsSettingsReducer} from "../../Redux/testReducer";
-import {RootState} from "../../Redux/store";
+import {Start} from "./Start";
+import {getTestsList, setTestsSettingsReducer} from "../../../Redux/testReducer";
+import {RootState} from "../../../Redux/store";
 import {Dispatch} from "@reduxjs/toolkit";
 
 export interface propsStart {

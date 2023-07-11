@@ -44,24 +44,6 @@
     z-index: 99;
 }
 
-
-.answerButton{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    background: #3f4e5d;
-    border-radius: 13px;
-    height: 70px;
-    flex: auto;
-    width: 35%;
-    border: 0;
-    color: white;
-
-}
-
 @media screen and (max-width: 600px){
     .textArea{
         font-size: 22px;
@@ -70,9 +52,6 @@
     }
     .container{
         width: 90%;
-    }
-    .answerButton{
-        width: 49%;
     }
     #centralPanel{
         width: 80%;

@@ -1,18 +1,18 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getQuestionReq, getTestsListReq, sendResultReq} from "./api";
-import {resultArray, resultsRes, testSettings, testsList, testType} from "../Models/Models";
-import {Axios, AxiosResponse} from "axios";
+import {IResultItem, IResult, IAboutTest, ITest} from "../Models/Models";
+import {AxiosResponse} from "axios";
 
 export type testSliceState = {
-    testType: testType,
+    testType: ITest,
     amount: number,
     curQuest: number,
-    answers: Array<number>
+    answers: number[],
     captionForResults: string,
-    res: Array<resultArray>,
+    res: IResultItem[],
     isLoading: boolean,
     error: boolean,
-    testsList: Array<testsList>
+    testsList: IAboutTest[]
 }
 
 const initialState: testSliceState = {
@@ -54,14 +54,14 @@ const testReducer = createSlice({
 
             return state;
         },
-        setResultsReducer(state: testSliceState, action: PayloadAction<resultsRes>) {
+        setResultsReducer(state: testSliceState, action: PayloadAction<IResult>) {
             state.res = action.payload.results;
             state.captionForResults = action.payload.caption
             state.answers = []
 
             return state;
         },
-        setTestsListReducer(state: testSliceState, action: PayloadAction<Array<testsList>>) {
+        setTestsListReducer(state: testSliceState, action: PayloadAction<Array<IAboutTest>>) {
             state.testsList = action.payload;
 
             return state;
@@ -106,7 +106,7 @@ export const sendResultAPI = createAsyncThunk(
     async (_data: undefined, thunkAPI: any) => {
         try {
             thunkAPI.dispatch(setLoadingStatusReducer(true))
-            let {data}: AxiosResponse<resultsRes> = await sendResultReq(thunkAPI.getState().test.answers, thunkAPI.getState().test.testType.type, thunkAPI.getState().login.name, thunkAPI.getState().login.email)
+            let {data}: AxiosResponse<IResult> = await sendResultReq(thunkAPI.getState().test.answers, thunkAPI.getState().test.testType.type, thunkAPI.getState().login.name, thunkAPI.getState().login.email)
             thunkAPI.dispatch(setLoadingStatusReducer(false))
             thunkAPI.dispatch(setResultsReducer(data))
         } catch (error) {
@@ -120,7 +120,7 @@ export const getTestsList = createAsyncThunk(
     async (_data: undefined, thunkAPI: any) => {
         try {
             thunkAPI.dispatch(setLoadingStatusReducer(true))
-            let {data}: AxiosResponse<testsList[]> = await getTestsListReq()
+            let {data}: AxiosResponse<IAboutTest[]> = await getTestsListReq()
             thunkAPI.dispatch(setLoadingStatusReducer(false))
             thunkAPI.dispatch(setTestsListReducer(data))
         } catch (error) {

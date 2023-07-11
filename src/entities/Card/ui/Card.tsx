@@ -1,11 +1,10 @@
-import React from 'react';
-import st from "./Card.module.css"
 import {NavLink} from "react-router-dom";
-import {CardProps} from "../../Models/Models";
+import st from "./Card.module.css"
+import {CardProps} from "../../../Models/Models";
 
 
 
-const Card = (props: CardProps) => {
+export const Card = (props: CardProps) => {
 
     function onNavLinkClickHandler(){
         props.setTest(props.id, props.amount);
@@ -20,5 +19,3 @@ const Card = (props: CardProps) => {
         </NavLink>
     )
 };
-
-export default Card;

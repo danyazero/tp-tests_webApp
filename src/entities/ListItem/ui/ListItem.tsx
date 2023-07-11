@@ -1,12 +1,11 @@
-import React from 'react';
-import st from "./ResultItem.module.css"
+import st from './ResultItem.module.css'
 
 interface ListItemProps {
     name?: string,
     email?: string,
     points: number
 }
-const ListItem = (props: ListItemProps) => {
+export const ListItem = (props: ListItemProps) => {
 
     return(
         <div className={st.gridItem}>
@@ -15,5 +14,3 @@ const ListItem = (props: ListItemProps) => {
         </div>
     )
 };
-
-export default ListItem;

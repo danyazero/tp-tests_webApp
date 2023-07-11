@@ -1,15 +1,15 @@
 import {connect} from "react-redux";
-import Home from "./Home";
-import { startTestReducer} from "../../Redux/loginReducer";
-import {RootState} from "../../Redux/store";
+import {Home} from "./Home";
+import { startTestReducer} from "../../../Redux/loginReducer";
+import {RootState} from "../../../Redux/store";
 import {Dispatch} from "@reduxjs/toolkit";
-import {testsList} from "../../Models/Models";
+import {IAboutTest} from "../../../Models/Models";
 
 export type propsHome = {
     name: string,
     isAuth: boolean,
     isStarted: boolean,
-    isInitialized: Array<testsList>,
+    isInitialized: Array<IAboutTest>,
     error: boolean
 }
 function mapStateToProps(state: RootState): propsHome{

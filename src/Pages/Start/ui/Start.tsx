@@ -1,12 +1,12 @@
-import React, {FC, useEffect} from 'react';
+import {FC, useEffect} from 'react';
 import st from "./Start.module.css"
-import Card from "../../HelpComponents/Card/Card";
+import {Card} from "../../../entities/Card";
 import {dPropsStart, propsStart} from "./StartContainer";
-import Loading from "../../HelpComponents/Loading/Loading";
+import Loading from "../../../shared/Loading/Loading";
 import {useNavigate} from "react-router-dom";
-import Socials from "../../HelpComponents/Socials/Socials";
+import Socials from "../../../shared/Socials/Socials";
 
-const Start: FC<propsStart & dPropsStart> = (props) => {
+export const Start: FC<propsStart & dPropsStart> = (props) => {
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -31,5 +31,3 @@ const Start: FC<propsStart & dPropsStart> = (props) => {
         </>
     )
 };
-
-export default Start;

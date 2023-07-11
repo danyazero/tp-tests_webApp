@@ -1,0 +1,14 @@
+.textArea{
+    margin-bottom: 10%;
+}
+
+.loginForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+.formArea{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}

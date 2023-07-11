@@ -1,0 +1,8 @@
+.nameField{
+    display: flex;
+    background: #f6f7fb;
+    padding: 12px;
+    width: 220px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+}

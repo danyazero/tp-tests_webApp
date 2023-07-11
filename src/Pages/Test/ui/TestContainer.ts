@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import Test from "./Test";
+import {Test} from "./Test";
 import {
     addAnswerReducer,
     getQuestionAPI, sendResultAPI,
-} from "../../Redux/testReducer";
+} from "../../../Redux/testReducer";
 import {Dispatch} from "@reduxjs/toolkit";
-import {RootState} from "../../Redux/store";
+import {RootState} from "../../../Redux/store";
 
 export type  propsTest = {
     isAuth: boolean,

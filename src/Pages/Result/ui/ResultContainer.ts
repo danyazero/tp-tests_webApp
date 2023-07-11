@@ -1,18 +1,18 @@
 import {connect} from "react-redux";
-import Result from "./Result";
+import {Result} from "./Result";
 import {Dispatch} from "@reduxjs/toolkit";
-import {RootState} from "../../Redux/store";
-import {resultArray, testsList} from "../../Models/Models";
-import {finishTestReducer} from "../../Redux/loginReducer";
-import {clearTestResults} from "../../Redux/testReducer";
+import {RootState} from "../../../Redux/store";
+import {IResultItem, IAboutTest} from "../../../Models/Models";
+import {finishTestReducer} from "../../../Redux/loginReducer";
+import {clearTestResults} from "../../../Redux/testReducer";
 
 export type propsResult = {
-    result: Array<resultArray>,
+    result: Array<IResultItem>,
     isStarted: boolean,
     type: number,
     name: string,
     isLoading: boolean,
-    test: Array<testsList>,
+    test: IAboutTest[],
     error: boolean,
     caption: string
 }
@@ -43,5 +43,4 @@ function mapDispatchToProps(dispatch: Dispatch<any>){
     }
 }
 
-const ResultContainer = connect(mapStateToProps, mapDispatchToProps)(Result)
-export default ResultContainer;
+export const ResultContainer = connect(mapStateToProps, mapDispatchToProps)(Result)

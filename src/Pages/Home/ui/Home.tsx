@@ -1,10 +1,11 @@
-import React, {FC, useEffect, useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import st from './Home.module.css'
 import {useNavigate} from "react-router-dom";
 import {dPropsHome, propsHome} from "./HomeContainer";
-import Socials from "../../HelpComponents/Socials/Socials";
+import Socials from "../../../shared/Socials/Socials";
+import {NameInput} from "../../../shared/NameInput/NameInput";
 
-const Home: FC<propsHome & dPropsHome> = (props) => {
+export const Home: FC<propsHome & dPropsHome> = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,20 +37,11 @@ const Home: FC<propsHome & dPropsHome> = (props) => {
             <div className={"centralPanel"}>
                 <div className={st.loginForm}>
                     <form className={st.formArea} onSubmit={onSubmitHandler}>
-                        <div className={st.inputArea}>
-                            <input type={"text"} name={"first_name"} placeholder={"Имя"} className={st.nameField}
-                                   value={name}
-                                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                       setName(e.target.value)
-                                       console.log(name)
-                                   }} required/>
-                        </div>
-                        <button className={st.startButton} type="submit">Начать</button>
+                        <NameInput value={name} onChange={(value: string) => setName(value)} placeholder={"Name"}/>
+                        <button className={st.startButton} type="submit">Start</button>
                     </form>
                 </div>
             </div>
         </>
     )
 };
-
-export default Home;
